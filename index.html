@@ -729,16 +729,20 @@
 	<section class="container">
 		<div class="row" style="margin-top:10px;">
 			<h4>Sidenav</h4>
-			<div class="med-6">
+			<div class="med-4">
 				<button class="button primary" onclick="venom.sidenav('mySidenav', {openSpeed: 1.5}).open()">Open Left Sidenav</button>
 			</div>
 
-			<div class="med-6">
+			<div class="med-4">
 				<button class="button primary" onclick="venom.sidenav('mySidenav2').open()">Open Right Sidenav</button>
 			</div>
 
+			<div class="med-4">
+				<button class="button primary" data-action="sidenav" data-open="mySidenav3">Open Right Sidenav without javascript</button>
+			</div>
+
 			<div id="mySidenav" class="sidenav sidenav-left sidenav-primary">
-				<p class="sidenav-overlay"></p>
+				<p class="sidenav-overlay" data-action="sidenav" data-close="mySidenav"></p>
 				<div class="sidenav-content">
 					<button class="button primary" onclick="venom.sidenav('mySidenav').close()">Close Sidenav</button>
 					<p class="sidenav-item">Item 1</p>
@@ -750,6 +754,15 @@
 			<div id="mySidenav2" class="sidenav sidenav-right sidenav-danger">
 				<div class="sidenav-content">
 					<button class="button primary" onclick="venom.sidenav('mySidenav2').close()">Close Sidenav</button>
+					<p class="sidenav-item">Item 1</p>
+					<p class="sidenav-item">Item 2</p>
+					<p class="sidenav-item">Item 3</p>
+				</div>
+			</div>
+
+			<div id="mySidenav3" role="sidenav" class="sidenav sidenav-right sidenav-danger">
+				<div class="sidenav-content">
+					<button class="button primary" data-action="sidenav" data-close="mySidenav3">Close Sidenav3</button>
 					<p class="sidenav-item">Item 1</p>
 					<p class="sidenav-item">Item 2</p>
 					<p class="sidenav-item">Item 3</p>

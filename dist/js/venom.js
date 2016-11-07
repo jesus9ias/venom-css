@@ -64,3 +64,31 @@ var venomSidenav = (function() {
 var venom = {
   sidenav: venomSidenav
 }
+
+
+function addListeners() {
+  var matchingElements = [];
+  var allElements = document.getElementsByTagName('*');
+  for (var i = 0, n = allElements.length; i < n; i++) {
+    if (allElements[i].getAttribute('data-action') !== null) {
+      allElements[i].addEventListener('click', makeAction);
+    }
+  }
+}
+addListeners();
+
+function makeAction(event) {
+  var attrs = event.target.attributes;
+
+  if (typeof attrs['data-action'] !== 'undefined'
+    && attrs['data-action'].value === 'sidenav')
+  {
+    if (typeof attrs['data-open'] !== 'undefined') {
+      venom.sidenav(attrs['data-open'].value).open();
+    }
+
+    if (typeof attrs['data-close'] !== 'undefined') {
+      venom.sidenav(attrs['data-close'].value).close();
+    }
+  }
+}
